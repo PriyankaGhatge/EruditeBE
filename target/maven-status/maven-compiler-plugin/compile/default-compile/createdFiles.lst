@@ -1,0 +1,13 @@
+com\niit\erudite\model\Product.class
+com\niit\erudite\model\User.class
+com\niit\erudite\model\Category.class
+com\niit\erudite\daoimp\UserDaoImp.class
+com\niit\erudite\config\ApplicationContextConfig.class
+com\niit\erudite\daoimp\CategoryDaoImp.class
+com\niit\erudite\daoimp\SupplierDaoImp.class
+com\niit\erudite\dao\CategoryDao.class
+com\niit\erudite\dao\ProductDao.class
+com\niit\erudite\dao\UserDao.class
+com\niit\erudite\model\Supplier.class
+com\niit\erudite\dao\SupplierDao.class
+com\niit\erudite\daoimp\ProductDaoImp.class
