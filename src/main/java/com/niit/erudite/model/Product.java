@@ -1,24 +1,45 @@
 package com.niit.erudite.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Component
 @Table
-public class Product {
-
+public class Product implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int product_id;
+	
+	@Column
 	private int product_price;
+	
+	@Column
 	private String product_name;
+	
+	@Column
 	private String product_description;
+	
+	@Column
 	private String category_name;
+	
+	@Column
 	private String supp_name;
 	
+	@Transient
+	private MultipartFile image;
 	
 	public int getProduct_id() {
 		return product_id;
@@ -55,6 +76,12 @@ public class Product {
 	}
 	public void setSupp_name(String supp_name) {
 		this.supp_name = supp_name;
+	}
+	public MultipartFile getImage() {
+		return image;
+	}
+	public void setImage(MultipartFile image) {
+		this.image = image;
 	}
 	
 	

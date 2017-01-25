@@ -113,7 +113,6 @@ public class ApplicationContextConfig {
 		Properties properties = new Properties();
 		properties.put("hibernate.show_sql", true);
 		properties.put("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
-		// added by KZN
 		properties.put("hibernate.hbm2ddl.auto", "update");
 		return properties;
 	}
@@ -124,10 +123,8 @@ public class ApplicationContextConfig {
 
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
-		// added by KZN
 		sessionBuilder.scanPackages("com");
-		return sessionBuilder.buildSessionFactory();
-	}
+		return sessionBuilder.buildSessionFactory();	}
 
 	@Autowired
 	@Bean(name = "transactionManager")

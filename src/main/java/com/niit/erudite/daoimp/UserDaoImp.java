@@ -53,7 +53,7 @@ public class UserDaoImp implements UserDao{
 
 			System.out.println("save user");	
 			sessionFactory.getCurrentSession().saveOrUpdate(user);
-//			user.setRole("ROLE_ADMIN");
+		/*	user.setRole("ROLE_ADMIN");*/
 			user.setRole("ROLE_USER");
 		}
 	
