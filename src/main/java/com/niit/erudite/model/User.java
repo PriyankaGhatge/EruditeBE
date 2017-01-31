@@ -1,9 +1,13 @@
 package com.niit.erudite.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -34,6 +38,16 @@ import org.springframework.stereotype.Component;
 		private String role;
 		
 		private String email;
+		
+		@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+		@JoinColumn(name = "billing_id")
+		private BillingAddress billingAddress;
+
+		
+
+		@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+		@JoinColumn(name = "shipping_id")
+		private ShippingAddress shippingAddress;
 		
 
 		public String getName() {
@@ -75,7 +89,21 @@ import org.springframework.stereotype.Component;
 		public void setEmail(String email) {
 			this.email = email;
 		}
+		public BillingAddress getBillingAddress() {
+			return billingAddress;
+		}
 
+		public void setBillingAddress(BillingAddress billingAddress) {
+			this.billingAddress = billingAddress;
+		}
+
+		public ShippingAddress getShippingAddress() {
+			return shippingAddress;
+		}
+
+		public void setShippingAddress(ShippingAddress shippingAddress) {
+			this.shippingAddress = shippingAddress;
+		}
 	
 
 	}
