@@ -14,7 +14,7 @@ public interface ProductDao {
 
 	public void delete(int id);
 
-	public Product get(int product_id);
+	public Product get(int productid);
 
 	public List<Product> list();
 	

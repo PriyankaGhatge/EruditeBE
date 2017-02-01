@@ -35,14 +35,14 @@ public class ProductDaoImp implements ProductDao{
 	@Transactional
 	public void delete(int id) {
 		Product ProductToDelete = new Product();
-		ProductToDelete.setProduct_id(id);
+		ProductToDelete.setProductid(id);
 		sessionFactory.getCurrentSession().delete(ProductToDelete);
 		
 	}
 
 	@Transactional
-	public Product get(int product_id) {
-		return (Product) sessionFactory.getCurrentSession().get(Product.class, product_id);
+	public Product get(int productid) {
+		return (Product) sessionFactory.getCurrentSession().get(Product.class, productid);
 	}
 
 	@Transactional

@@ -21,16 +21,16 @@ public class Product implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int product_id;
+	private int productid;
 	
 	@Column
-	private int product_price;
+	private int productprice;
 	
 	@Column
-	private String product_name;
+	private String productname;
 	
 	@Column
-	private String product_description;
+	private String productdescription;
 	
 	@Column
 	private String category_name;
@@ -41,29 +41,29 @@ public class Product implements Serializable{
 	@Transient
 	private MultipartFile image;
 	
-	public int getProduct_id() {
-		return product_id;
+	public int getProductid() {
+		return productid;
 	}
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
+	public void setProductid(int productid) {
+		this.productid = productid;
 	}
-	public int getProduct_price() {
-		return product_price;
+	public int getProductprice() {
+		return productprice;
 	}
-	public void setProduct_price(int product_price) {
-		this.product_price = product_price;
+	public void setProductprice(int productprice) {
+		this.productprice = productprice;
 	}
-	public String getProduct_name() {
-		return product_name;
+	public String getProductname() {
+		return productname;
 	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
-	public String getProduct_description() {
-		return product_description;
+	public String getProductdescription() {
+		return productdescription;
 	}
-	public void setProduct_description(String product_description) {
-		this.product_description = product_description;
+	public void setProductdescription(String productdescription) {
+		this.productdescription = productdescription;
 	}
 	public String getCategory_name() {
 		return category_name;

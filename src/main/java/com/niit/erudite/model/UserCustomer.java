@@ -12,32 +12,26 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 	@Entity
 	@Table
 	@Component
-	public class User {
+	public class UserCustomer {
 		
 	@Id	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 		
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-		private String name;
+	private String username;
 		
-		private String password;
+	private String password;
 		
-		private String contact;
+	private String contact;
 		
-		private String role;
+	private String role;
 		
-		private String email;
+	private String email;
 		
 		@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 		@JoinColumn(name = "billing_id")
@@ -49,13 +43,33 @@ import org.springframework.stereotype.Component;
 		@JoinColumn(name = "shipping_id")
 		private ShippingAddress shippingAddress;
 		
+		@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+		@JoinColumn(name = "cart_id")
+		@JsonIgnore
+		private Cart cart;
 
-		public String getName() {
-			return name;
+		public Cart getCart() {
+			return cart;
 		}
 
-		public void setName(String name) {
-			this.name = name;
+		public void setCart(Cart cart) {
+			this.cart = cart;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+		
+		public String getUsername() {
+			return username;
+		}
+
+		public void setUsername(String username) {
+			this.username = username;
 		}
 
 		public String getPassword() {

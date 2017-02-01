@@ -37,13 +37,13 @@ public class ShippingAddress  {
 	private String addressline2;
 	
 	@OneToOne(mappedBy = "shippingAddress")
-	private User user;
+	private UserCustomer user;
 	
-	public User getUser() {
+	public UserCustomer getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserCustomer user) {
 		this.user = user;
 	}
 

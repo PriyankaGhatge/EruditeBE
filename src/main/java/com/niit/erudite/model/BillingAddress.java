@@ -39,7 +39,7 @@ public class BillingAddress {
 	private String addressline2;
 	
 	@OneToOne(mappedBy = "billingAddress", cascade = CascadeType.ALL)
-	private User user;
+	private UserCustomer user;
 	
 	public int getBilling_id() {
 		return billing_id;
@@ -49,11 +49,11 @@ public class BillingAddress {
 		this.billing_id = billing_id;
 	}
 
-	public User getUser() {
+	public UserCustomer getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(UserCustomer user) {
 		this.user = user;
 	}
 
