@@ -70,8 +70,8 @@ public class UserDaoImp implements UserDao{
 			System.out.println("save user");	
 			/*sessionFactory.getCurrentSession().saveOrUpdate(user);*/
 			Session session = sessionFactory.getCurrentSession();
-			/*user.setRole("ROLE_ADMIN");*/
-			user.setRole("ROLE_USER");
+			user.setRole("ROLE_ADMIN");
+			/*user.setRole("ROLE_USER");*/
 			
 			Cart cart = new Cart();
 			user.setCart(cart);
