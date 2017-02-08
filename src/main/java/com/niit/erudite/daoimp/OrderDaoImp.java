@@ -43,9 +43,9 @@ public class OrderDaoImp implements OrderDao {
 		int grandTotal = 0;
 		System.out.println("cust71 :" +cartdao.getCartByCartId(cart_id));
 		Cart cart = cartdao.getCartByCartId(cart_id);
-		List<CartItem> cartItems= cart.getCartitem();
+		List<CartItem> cartitems= cart.getCartitems();
 		System.out.println("cust81");
-		for (CartItem item : cartItems) {
+		for (CartItem item : cartitems) {
 			grandTotal += item.getTotalprice();
 		}
 		System.out.println("cust91");

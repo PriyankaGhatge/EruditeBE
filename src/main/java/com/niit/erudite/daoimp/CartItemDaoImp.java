@@ -28,11 +28,12 @@ public class CartItemDaoImp implements CartItemDao {
 	}
 
 	@Transactional
-	public void addCartItem(CartItem cartitem) {
+	public void addCartItem(CartItem cartItem) {
 		Session session = sessionFactory.getCurrentSession();
-		session.saveOrUpdate(cartitem);
+		session.saveOrUpdate(cartItem);
 		
 	}
+	
 
 	@Transactional
 	public void removeCartItem(int cartitem_id) {
@@ -41,15 +42,15 @@ public class CartItemDaoImp implements CartItemDao {
 		session.delete(cartItem);
 
 		Cart cart = cartItem.getCart();
-		List<CartItem> cartItems = cart.getCartitem();
-		cartItems.remove(cartItem);
+		List<CartItem> cartitem = cart.getCartitems();
+		cartitem.remove(cartItem);
 		
 	}
 
 	@Transactional
 	public void removeAllCartItems(Cart cart) {
-		List<CartItem> cartItems = cart.getCartitem();
-		for (CartItem cartItem : cartItems) {
+		List<CartItem> cartitems = cart.getCartitems();
+		for (CartItem cartItem : cartitems) {
 			removeCartItem(cartItem.getCartitem_id());
 	}
 

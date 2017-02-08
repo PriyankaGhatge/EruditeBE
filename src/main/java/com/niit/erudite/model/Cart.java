@@ -1,5 +1,6 @@
 package com.niit.erudite.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +19,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table
-public class Cart {
+public class Cart implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,6 +35,8 @@ public class Cart {
 	@JsonIgnore
 	private UserCustomer user;
 	
+	
+
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	private List<CartItem> cartitem;
@@ -51,6 +56,7 @@ public class Cart {
 	public void setTotalprice(int totalprice) {
 		this.totalprice = totalprice;
 	}
+	
 
 	public UserCustomer getUserCustomer() {
 		return user;
@@ -60,11 +66,12 @@ public class Cart {
 		this.user = user;
 	}
 
-	public List<CartItem> getCartitem() {
+	
+	public List<CartItem> getCartitems() {
 		return cartitem;
 	}
 
-	public void setCartitem(List<CartItem> cartitem) {
+	public void setCartitems(List<CartItem> cartitem) {
 		this.cartitem = cartitem;
 	}
 

@@ -1,5 +1,7 @@
 package com.niit.erudite.model;
 
+import java.io.Serializable;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,10 +13,15 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Component
 @Table
 @Entity
-public class BillingAddress {
+public class BillingAddress implements Serializable{
+
+	
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
@@ -39,6 +46,7 @@ public class BillingAddress {
 	private String addressline2;
 	
 	@OneToOne(mappedBy = "billingAddress", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private UserCustomer user;
 	
 	public int getBilling_id() {
@@ -55,14 +63,6 @@ public class BillingAddress {
 
 	public void setUser(UserCustomer user) {
 		this.user = user;
-	}
-
-	public int getShipping_id() {
-		return billing_id;
-	}
-
-	public void setShipping_id(int shipping_id) {
-		this.billing_id = shipping_id;
 	}
 
 	public String getCountry() {

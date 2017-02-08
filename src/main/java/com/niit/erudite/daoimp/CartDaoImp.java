@@ -33,14 +33,6 @@ public class CartDaoImp implements CartDao{
 		this.sessionFactory = sessionFactory;
 	}
 
-	public OrderDao getOrderdao() {
-		return orderdao;
-	}
-
-	public void setOrderdao(OrderDao orderdao) {
-		this.orderdao = orderdao;
-	}
-
 	public CartDao getCartdao() {
 		return cartdao;
 	}
@@ -58,11 +50,11 @@ public class CartDaoImp implements CartDao{
 		return cart;
 	}
 
-	@Transactional
+	
 	public Cart validate(int cart_id) throws IOException {
 		Cart cart = getCartByCartId(cart_id);
 		System.out.println("Empty1");
-		if (cart == null || cart.getCartitem().size() == 0) {
+		if (cart == null || cart.getCartitems().size() == 0) {
 			throw new IOException(cart_id + "");
 		}
 		System.out.println("Empty2");
@@ -71,7 +63,7 @@ public class CartDaoImp implements CartDao{
 
 	}
 
-	@Override
+	
 	public void update(Cart cart) {
 		System.out.println("cart1");
 		int cartId = cart.getCart_id();

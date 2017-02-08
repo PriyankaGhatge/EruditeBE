@@ -1,5 +1,7 @@
 package com.niit.erudite.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,10 +12,15 @@ import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Component
 @Table
 @Entity
-public class ShippingAddress  {
+public class ShippingAddress implements Serializable  {
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private int shipping_id;
@@ -37,6 +44,7 @@ public class ShippingAddress  {
 	private String addressline2;
 	
 	@OneToOne(mappedBy = "shippingAddress")
+	@JsonIgnore
 	private UserCustomer user;
 	
 	public UserCustomer getUser() {
