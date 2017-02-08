@@ -1,3 +1,4 @@
+
 package com.niit.erudite.daoimp;
 
 import java.util.List;
@@ -75,7 +76,7 @@ public class UserDaoImp implements UserDao{
 			
 			Cart cart = new Cart();
 			user.setCart(cart);
-			cart.setUserCustomer(user);
+			cart.setUsercustomer(user);
 			session.saveOrUpdate(user);
 		}
 	

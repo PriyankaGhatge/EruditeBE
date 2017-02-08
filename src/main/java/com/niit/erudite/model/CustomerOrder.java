@@ -12,14 +12,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Order implements Serializable {
+public class CustomerOrder implements Serializable {
 
 		private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int order_id;
+	private int customerorder_id;
 	
+	
+
 	@OneToOne
 	@JoinColumn(name="cart_id")
 	private Cart cart;
@@ -36,12 +38,12 @@ public class Order implements Serializable {
 	@JoinColumn(name="shipping_id")
 	private ShippingAddress shippingAddress;
 	
-	public int getOrder_id() {
-		return order_id;
+	public int getCustomerorder_id() {
+		return customerorder_id;
 	}
 
-	public void setOrder_id(int order_id) {
-		this.order_id = order_id;
+	public void setCustomerorder_id(int customerorder_id) {
+		this.customerorder_id = customerorder_id;
 	}
 
 	public Cart getCart() {

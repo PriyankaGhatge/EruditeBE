@@ -9,14 +9,14 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.erudite.dao.CartDao;
-import com.niit.erudite.dao.OrderDao;
+import com.niit.erudite.dao.CustomerOrderDao;
 import com.niit.erudite.model.Cart;
 import com.niit.erudite.model.CartItem;
-import com.niit.erudite.model.Order;
+import com.niit.erudite.model.CustomerOrder;
 
 @Transactional
 @Repository
-public class OrderDaoImp implements OrderDao {
+public class CustomerOrderDaoImp implements CustomerOrderDao {
 	
 	@Autowired
 	SessionFactory sessionFactory;
@@ -25,11 +25,11 @@ public class OrderDaoImp implements OrderDao {
 	CartDao cartdao;
 
 	@Autowired
-	OrderDao orderdao;
+	CustomerOrderDao orderdao;
 	
 
 	@Transactional
-	public void addCustomerOrder(Order order) {
+	public void addCustomerOrder(CustomerOrder order) {
 		System.out.println("hello customer table ");
 		Session session = sessionFactory.getCurrentSession();
 		System.out.println("cust1");

@@ -33,9 +33,17 @@ public class Cart implements Serializable{
 	@OneToOne
 	@JoinColumn(name = "id")
 	@JsonIgnore
-	private UserCustomer user;
+	private UserCustomer usercustomer;
 	
 	
+
+	public UserCustomer getUsercustomer() {
+		return usercustomer;
+	}
+
+	public void setUsercustomer(UserCustomer usercustomer) {
+		this.usercustomer = usercustomer;
+	}
 
 	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
@@ -57,17 +65,7 @@ public class Cart implements Serializable{
 		this.totalprice = totalprice;
 	}
 	
-
-	public UserCustomer getUserCustomer() {
-		return user;
-	}
-
-	public void setUserCustomer(UserCustomer user) {
-		this.user = user;
-	}
-
-	
-	public List<CartItem> getCartitems() {
+    public List<CartItem> getCartitems() {
 		return cartitem;
 	}
 

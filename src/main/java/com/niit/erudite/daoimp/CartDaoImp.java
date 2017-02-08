@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.erudite.dao.CartDao;
-import com.niit.erudite.dao.OrderDao;
+import com.niit.erudite.dao.CustomerOrderDao;
 import com.niit.erudite.model.Cart;
 
 @Repository
@@ -20,7 +20,7 @@ public class CartDaoImp implements CartDao{
 	private SessionFactory sessionFactory;
 
 	@Autowired
-	private OrderDao orderdao;
+	private CustomerOrderDao orderdao;
 
 	@Autowired
 	private CartDao cartdao;
